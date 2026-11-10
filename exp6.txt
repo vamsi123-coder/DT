@@ -1,0 +1,65 @@
+EXPERIMENT 6 - DOCKER ARCHITECTURE AND CONTAINER LIFECYCLE
+Source: DT_lab_all_experiments.pdf, Experiment 6 (pages 20-22)
+
+AIM
+To understand Docker architecture and container lifecycle by installing Docker and executing
+commands to manage images and interact with containers.
+
+DOCKER COMPONENTS
+1. Docker Client: accepts commands such as docker run and docker pull.
+2. Docker Daemon: manages images, containers, networks and volumes.
+3. Docker Images: read-only templates used to create containers.
+4. Docker Containers: running instances of Docker images.
+5. Docker Registry: stores and distributes images, for example Docker Hub.
+
+UBUNTU COMMANDS
+
+1. INSTALL DOCKER
+sudo apt update
+sudo apt install docker.io -y
+
+2. START AND ENABLE DOCKER
+sudo systemctl start docker
+sudo systemctl enable docker
+
+3. DOWNLOAD AN IMAGE
+sudo docker pull ubuntu
+
+4. LIST IMAGES
+sudo docker images
+
+5. CREATE AND RUN A CONTAINER
+sudo docker run -it --name mycontainer ubuntu
+
+This opens an interactive terminal inside the Ubuntu container.
+Inside the container, try:
+pwd
+ls
+cat /etc/os-release
+exit
+
+6. VIEW CONTAINERS
+sudo docker ps
+sudo docker ps -a
+
+7. START, STOP AND RESTART A CONTAINER
+sudo docker start mycontainer
+sudo docker stop mycontainer
+sudo docker restart mycontainer
+
+8. REMOVE A CONTAINER
+sudo docker rm mycontainer
+
+If it is running, stop it first:
+sudo docker stop mycontainer
+sudo docker rm mycontainer
+
+9. REMOVE THE UBUNTU IMAGE
+sudo docker rmi ubuntu
+
+RESULT
+Docker is installed and its image and container lifecycle commands are executed.
+
+NOTE
+The manual uses the container name mycontainer. The docker run command above creates that
+named container so the later start/stop/remove commands refer to the same container.

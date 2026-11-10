@@ -1,0 +1,75 @@
+EXPERIMENT 4 - INSTALL AND CONFIGURE JENKINS CI BUILD JOB
+Source: DT_lab_all_experiments.pdf, Experiment 4 (pages 10-15)
+
+AIM
+To install and configure Jenkins, create and execute a build job, and understand Continuous Integration.
+
+REQUIREMENTS
+- Jenkins LTS
+- Java 21 or 25 as noted in the manual
+- Git and a GitHub repository
+- Browser
+
+1. INSTALL JAVA
+The manual uses Windows and specifies Java 21. Install a compatible JDK from:
+https://adoptium.net/temurin/releases/?version=21
+
+Verify in Command Prompt or PowerShell:
+java --version
+
+2. DOWNLOAD AND INSTALL JENKINS ON WINDOWS
+- Open https://www.jenkins.io/download/
+- Download the Windows .msi installer.
+- Run the installer and follow the wizard.
+- Select "Run service as Local System" as shown in the manual.
+- Set port 8080 and test that the port is free.
+- Complete installation and start the Jenkins service.
+
+3. OPEN JENKINS
+Open:
+http://localhost:8080
+
+Unlock Jenkins. The Windows initial administrator password is normally located at:
+C:\ProgramData\Jenkins\.jenkins\secrets\initialAdminPassword
+
+Open the file as administrator or use PowerShell:
+Get-Content 'C:\ProgramData\Jenkins\.jenkins\secrets\initialAdminPassword'
+
+4. INITIAL SETUP
+- Paste the initial administrator password.
+- Select Install Suggested Plugins.
+- Wait for plugin installation to complete.
+- Create an administrator user with username, password, full name and email.
+
+5. CREATE A FREESTYLE JOB
+- Click New Item.
+- Enter a job name, for example: Devops-record.
+- Select Freestyle project and click OK.
+
+6. CONFIGURE THE JOB
+- Description: This is my first build item on Jenkins.
+- Source Code Management: select Git.
+- Repository URL: enter your GitHub repository URL.
+- Branch Specifier: */main.
+
+7. ADD A BUILD STEP
+- Click Add build step.
+- Select "Execute Windows batch command".
+- Enter:
+echo Hello Jenkins, this is my first build
+
+8. SAVE AND RUN
+- Click Save.
+- Click Build Now.
+- Open the build number in Build History.
+- Select Console Output.
+
+EXPECTED OUTPUT
+The console should display:
+Hello Jenkins, this is my first build
+Finished: SUCCESS
+
+NOTE
+The attached lab manual demonstrates the Windows .msi installation and Windows batch build step.
+If performing this experiment on Ubuntu, use the official Jenkins Linux installation instructions
+for your Ubuntu version and select Execute shell instead of Execute Windows batch command.

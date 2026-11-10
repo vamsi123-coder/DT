@@ -1,0 +1,73 @@
+EXPERIMENT 3 - GIT INSTALLATION AND GITHUB OPERATIONS
+Source: DT_lab_all_experiments.pdf, Experiment 3 (pages 8-9)
+
+AIM
+To install Git, set up a GitHub account, and perform basic Git operations for version control.
+
+1. INSTALL GIT
+Ubuntu:
+sudo apt update
+sudo apt install git -y
+git --version
+
+Windows:
+Download Git from https://git-scm.com and complete the installer using default settings.
+
+2. CONFIGURE GIT
+git config --global user.name "username"
+git config --global user.email "email@gmail.com"
+git config --list
+
+3. CREATE A REPOSITORY ON GITHUB
+Open https://github.com
+Sign in, click New repository, enter DevOps_Lab (or your chosen name), and create it.
+
+4. CLONE THE REPOSITORY
+git clone https://github.com/USERNAME/DevOps_Lab.git
+cd DevOps_Lab
+
+5. CREATE OR EDIT A FILE
+Example:
+echo "My first DevOps commit" > readme.txt
+
+6. STAGE, COMMIT AND PUSH
+git add .
+git commit -m "First DevOps commit"
+git push -u origin main
+
+7. PULL LATEST CHANGES
+git pull origin main
+
+8. VERIFY
+git status
+git log --oneline
+git remote -v
+
+OPTIONAL BRANCHING AND GITHUB MERGE PRACTICE
+Create and switch to a feature branch:
+git checkout -b feature-login
+
+Create a sample file:
+echo "Login feature added" > login.txt
+
+Commit and push the feature branch:
+git add .
+git commit -m "Added login feature"
+git push -u origin feature-login
+
+On GitHub:
+- Open the repository and choose Compare & pull request.
+- Set base branch to main and compare branch to feature-login.
+- Create the Pull Request, then select Merge pull request and Confirm merge.
+
+Update local main:
+git checkout main
+git pull origin main
+
+OPTIONAL: delete the feature branch after merging:
+git branch -d feature-login
+git push origin --delete feature-login
+
+NOTE
+Replace USERNAME and repository name with your actual GitHub details. If the GitHub repository
+was initialized with a README, clone it first rather than creating a separate local repository.

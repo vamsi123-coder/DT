@@ -1,0 +1,73 @@
+EXPERIMENT 2 - VERSION CONTROL SYSTEM (GIT)
+Source: DT_lab_all_experiments.pdf, Experiment 2 (pages 4-7)
+
+AIM
+To explore Version Control System (VCS) tools, specifically Git, for effective source code management.
+
+OBJECTIVES
+- Understand local and remote repositories.
+- Learn basic Git commands for repository management.
+- Understand commit, push, pull and clone operations.
+
+UBUNTU COMMANDS
+
+1. INSTALL GIT
+sudo apt update
+sudo apt install git -y
+git --version
+
+2. CREATE A PROJECT DIRECTORY
+mkdir DevOps_exp
+cd DevOps_exp
+
+3. INITIALIZE A GIT REPOSITORY
+git init
+
+4. CREATE A SAMPLE FILE
+echo "My first DevOps project" > index.html
+
+5. ADD FILES TO THE STAGING AREA
+git add .
+
+6. COMMIT THE CHANGES
+git commit -m "First devops commit"
+
+7. SET THE BRANCH NAME TO MAIN
+git branch -M main
+
+8. CREATE A REPOSITORY ON GITHUB
+Open https://github.com
+Click New Repository and name it DevOps_Lab.
+Create the repository. For the simplest first push, create it empty (without README).
+
+9. LINK THE LOCAL REPOSITORY TO GITHUB
+Replace the URL with your repository URL:
+git remote add origin https://github.com/USERNAME/DevOps_Lab.git
+
+10. PUSH CODE TO THE REMOTE REPOSITORY
+git push -u origin main
+
+11. PULL CHANGES FROM THE REMOTE REPOSITORY
+git pull origin main
+
+12. VERIFY REPOSITORY STATUS
+git status
+git log --oneline
+git remote -v
+
+PROGRAM CODE SUMMARY
+git init
+git add .
+git commit -m "First devops commit"
+git remote add origin <repo-url>
+git push -u origin main
+
+RESULT
+Git was used to initialize a local repository, stage and commit files, connect to a GitHub
+repository, and push and pull changes. Version control helps track project history and
+supports collaboration.
+
+NOTE
+Replace USERNAME and the repository URL with your own GitHub details. If your GitHub
+repository already contains a README or other commit, clone it first or pull/reconcile
+the remote history before pushing.
